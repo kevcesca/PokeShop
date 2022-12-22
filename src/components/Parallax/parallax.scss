@@ -1,0 +1,15 @@
+body, html{
+    margin: 0;
+}
+.inside-style{
+    background-color:  #fff;
+    padding: 20px;
+    position: absolute;
+
+}
+.outside-style{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to top, #070707, transparent);
+}
