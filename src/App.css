@@ -1,3 +1,12 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+html{
+	scroll-behavior: smooth;
+}
 .App {
   text-align: center;
 }
@@ -27,6 +36,9 @@
 .App-link {
   color: #61dafb;
 }
+.bg-global{
+  background-color: #282c34;
+}
 
 @keyframes App-logo-spin {
   from {
@@ -36,3 +48,4 @@
     transform: rotate(360deg);
   }
 }
+

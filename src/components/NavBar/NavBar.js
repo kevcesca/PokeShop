@@ -6,12 +6,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './navBar.scss'
 import CartWidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar className='navBar' expand="lg">
             <Container fluid>
-                <Navbar.Brand href="#">TavoImpresiones3D</Navbar.Brand>
+                <Link className="header__link links" to="/">PokeShop</Link>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -19,12 +20,13 @@ function NavBar() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Home</Nav.Link>
-                        <NavDropdown title="Figuras" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">Figuras de anime</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">Figuras de videojuegos</NavDropdown.Item>
+                        <NavDropdown className='links' title="Tipos" id="navbarScrollingDropdown">
+                            <Link className="header__link links" to="/productos/Fire">Fuego</Link>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action5">Paquetes</NavDropdown.Item>
+                            <Link className="header__link links" to="/productos/Water">Agua</Link>
+                            <NavDropdown.Divider />
+                            <Link className="header__link links" to="/productos/Grass">Planta</Link>
+
                         </NavDropdown>
                     </Nav>
                     <Form className="d-flex">
@@ -37,6 +39,7 @@ function NavBar() {
                         <Button variant="outline-success">Search</Button>
                     </Form>
                     
+                    {/* Aqui puse mi carrito de compras */}
                     <CartWidget/>
                     
                     

@@ -2,8 +2,8 @@ body, html{
     margin: 0;
 }
 .inside-style{
-    background-color:  #fff;
-    padding: 20px;
+    background-color:  rgba(32, 30, 30, 0.233);
+    padding: 1200px;
     position: absolute;
 
 }
@@ -12,4 +12,7 @@ body, html{
     align-items: center;
     justify-content: center;
     background: linear-gradient(to top, #070707, transparent);
+}
+.main-bg{
+    background: linear-gradient(to top, #4cb8d3, #16354b);
 }
