@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import {Link, useNavigate } from "react-router-dom"
 import ItemCount from "../ItemCount/ItemCount"
-
+// import {useCartContext} from "../../context/CartContext"
 
 // const talles = [
 //     {value: 'S', text: 'talle S'},
@@ -10,16 +10,26 @@ import ItemCount from "../ItemCount/ItemCount"
 //     {value: 'XL', text: 'talle XL'},
 // ]
 
-const ItemDetail = ( {id, name,  img, type, height,weight} ) => {
+const ItemDetail = ( {id, name,  img, type, height, weight, price} ) => {
+    // const { agregarAlCarrito, isInCart } = useCartContext()
+
     const [cantidad, setCantidad] = useState(1)
-    // const [talle, setTalle] = useState(null)
 
     const navigate = useNavigate()
 
     const handleVolver = () => {
         navigate(-1)
     }
-
+    console.log({
+        id,
+        name,
+        type,
+        img,
+        height,
+        weight,
+        cantidad,
+        price
+    })
     const handleAgregar = () => {
         console.log({
             id,
@@ -28,8 +38,10 @@ const ItemDetail = ( {id, name,  img, type, height,weight} ) => {
             img,
             height,
             weight,
-            cantidad
+            cantidad,
+            price
         })
+        // agregarAlCarrito(item)
     }
 
 
@@ -38,18 +50,28 @@ const ItemDetail = ( {id, name,  img, type, height,weight} ) => {
             <h2>{name}</h2>
             <img src={img} alt={name}/>
             <br/>
-            <small className="small-detail">Tipo(s):{type[1] ? type[0] + " " + type[1] : type[0] }</small>
+            {/* <small className="small-detail">Tipo(s):{type[1] ? type[0] + " " + type[1] : type[0] }</small> */}
             <small className="small-detail">Tamaño:{height} </small>
             <small className="small-detail">Peso:{weight} </small>
-            <p className="detail-price">Precio: ${(id*1.5)+100}</p>
-
+            <p className="detail-price">Precio: ${price}</p>
 
             <ItemCount 
-                cantidad={cantidad}
-                setCantidad={setCantidad}
-                max={10}
-                onAdd={handleAgregar}
-            />
+                    cantidad={cantidad}
+                    setCantidad={setCantidad}
+                    max={10}
+                    onAdd={handleAgregar}
+                />
+{/* 
+            {
+            !isInCart(id)
+                ? <ItemCount 
+                    cantidad={cantidad}
+                    setCantidad={setCantidad}
+                    max={10}
+                    onAdd={handleAgregar}
+                />
+                : <Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
+            } */}
             <hr/>
 
             {/* <Select 

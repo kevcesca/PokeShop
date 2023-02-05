@@ -1,6 +1,6 @@
+import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -21,11 +21,37 @@ function NavBar() {
                         navbarScroll
                     >
                         <NavDropdown className='links' title="Tipos" id="navbarScrollingDropdown">
-                            <Link className="header__link links" to="/productos/Fire">Fuego</Link>
-                            <NavDropdown.Divider />
                             <Link className="header__link links" to="/productos/Water">Agua</Link>
                             <NavDropdown.Divider />
+                            <Link className="header__link links" to="/productos/Bug">Bicho</Link>
+                            <NavDropdown.Divider />
+                            <Link className="header__link links" to="/productos/Dragon">Dragón</Link>
+                            <NavDropdown.Divider />
+                            <Link className="header__link links" to="/productos/Electric">Electrico</Link>
+                            <NavDropdown.Divider />
+                            <Link className="header__link links" to="/productos/Ghost">Fantasma</Link>
+                            <NavDropdown.Divider />
+                            <Link className="header__link links" to="/productos/Fire">Fuego</Link>
+                            <NavDropdown.Divider />
+                            {/* <Link className="header__link links" to="/productos/Fairy">Hada</Link>
+                            <NavDropdown.Divider /> */}
+                            <Link className="header__link links" to="/productos/Fighting">Lucha</Link>
+                            <NavDropdown.Divider />
+                            <Link className="header__link links" to="/productos/Normal">Normal</Link>
+                            <NavDropdown.Divider />
                             <Link className="header__link links" to="/productos/Grass">Planta</Link>
+                            <NavDropdown.Divider />
+                            <Link className="header__link links" to="/productos/Psychic">Psiquico</Link>
+                            <NavDropdown.Divider />
+                            <Link className="header__link links" to="/productos/Rock">Roca</Link>
+                            <NavDropdown.Divider />
+                            {/* <Link className="header__link links" to="/productos/Dark">Siniestro</Link>
+                            <NavDropdown.Divider /> */}
+                            <Link className="header__link links" to="/productos/Ground">Tierra</Link>
+                            <NavDropdown.Divider />
+                            <Link className="header__link links" to="/productos/Poison">Veneno</Link>
+                            <NavDropdown.Divider />
+                            <Link className="header__link links" to="/productos/Flying">Volador</Link>
 
                         </NavDropdown>
                     </Nav>

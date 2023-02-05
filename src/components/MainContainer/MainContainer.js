@@ -1,32 +1,54 @@
 import { useEffect, useState } from "react"
-import { pedirDatos } from "../../helpers/pedirDatos"
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 import './mainContainer.scss'
+import { collection, getDocs,  query, where } from "firebase/firestore"
+import { db } from "../../firebase/config"
 
 const MainContainer = () => {
 
     const [productos, setProductos] = useState([])
-    const {typeId } = useParams()
+    const [loading, setLoading] = useState(true)
+    const { typeId } = useParams()
+    console.log(productos)
 
     useEffect(() => {
-        pedirDatos()
-            .then((res) => {
-                if (typeId) {
-                    setProductos( res.filter(poke => poke.type[0] === typeId ||poke.type[1] === typeId) )
-                } else {
-                    setProductos(res)
-                }
+        // pedirDatos()
+        
+        setLoading(true)
+
+        
+        const productosRef = collection(db, "pokemon_data")
+        const q = typeId
+                    ? query(productosRef, where("type", 'array-contains', typeId) )
+                    : productosRef
+        
+
+        getDocs(q)
+            .then((resp) => {
+                console.log(resp.docs.map((doc) => doc.data));
+                setProductos( resp.docs.map((doc) => {
+                    return {
+                        ...doc.data(),
+                        id: doc.id,
+                        price: (doc.id*1.5)+100
+                    }
+                }))
             })
-            .catch((err) => {
-                console.log(err)
+            .finally(() => {
+                setLoading(false)
             })
+
     }, [typeId])
 
 
     return (
         <div className="container">
-            <ItemList productos={productos}/>
+            {
+                loading
+                    ? <h2>Cargando...</h2>
+                    : <ItemList productos={productos}/>
+            }
         </div>
     )
 }
