@@ -32,9 +32,9 @@ export const CartProvider = ({children}) => {
       return cart.reduce((acc, item) => acc + item.price * item.cantidad, 0)
     }
 
-    // const totalCantidad = () => {
-    //     return cart.reduce((acc, item) => acc + item.cantidad, 0)
-    // }
+    const totalCantidad = () => {
+        return cart.reduce((acc, item) => acc + item.cantidad, 0)
+    }
 
     useEffect(() => {
       localStorage.setItem('cart', JSON.stringify(cart))
@@ -48,7 +48,7 @@ export const CartProvider = ({children}) => {
             isInCart,
             emptycart,
             totalCart,
-            // totalCantidad
+            totalCantidad
         }}>
             {children}
         </CartContext.Provider>

@@ -7,8 +7,10 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import './navBar.scss'
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
+import { useLoginContext } from '../../context/LoginContext'
 
 function NavBar() {
+    const { user, logout } = useLoginContext()
     return (
         <Navbar className='navBar' expand="lg">
             <Container fluid>
@@ -67,6 +69,10 @@ function NavBar() {
                     
                     {/* Aqui puse mi carrito de compras */}
                     <CartWidget/>
+                    <div className='header__container'>
+                        <p>Bienvenido: {user.email}</p>
+                        <button className='btn btn-danger' onClick={logout}>Logout</button>
+                    </div>
                     
                     
                 </Navbar.Collapse>

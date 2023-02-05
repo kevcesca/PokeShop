@@ -1,17 +1,18 @@
-import React from 'react'
-import Cart from '../../img/cart.svg';
+import { FaShoppingCart } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import { useCartContext } from '../../context/CartContext'
+import './CartWidget.scss'
 
+const CartWidget = () => {
 
-export default function CartWidget() {
+    const { totalCantidad, cart } = useCartContext()
 
-
-    
     return (
-        <button className='cart-padding d-flex'>
-            <img src={Cart} alt="Your shopping cart" />
-            <div><p className='cart-notification'>1</p></div>
-        </button>
+        <Link to="/cart" className={`cart-widget ${cart.length > 0 ? 'cart-widget-active' : ''}`}>
+            <FaShoppingCart />
+            <span>{totalCantidad()}</span>
+        </Link>
     )
-    
-
 }
+
+export default CartWidget
