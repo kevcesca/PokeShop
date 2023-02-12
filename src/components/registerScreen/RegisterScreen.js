@@ -5,7 +5,7 @@ import './RegisterScreen.scss'
 
 
 const RegisterScreen = () => {
-    const { login, user, loading, register } = useLoginContext()
+    const {user, loading, register, googleLogin } = useLoginContext()
     
     const [values, setValues] = useState({
         email: '',
@@ -50,6 +50,9 @@ const RegisterScreen = () => {
                     <button className='btn btn-primary' disabled={loading}>{loading ? 'Cargando...' : 'Ingresar'}</button>
                     {user.error && <p className='error'>{user.error}</p>}
                 </form>
+                <button className='btn btn-primary my-2' onClick={googleLogin}>Accede con google</button>
+                <br/>
+                <hr/>
                 <Link to="/login">Ya estoy registrado</Link>
             </div>
         </div>

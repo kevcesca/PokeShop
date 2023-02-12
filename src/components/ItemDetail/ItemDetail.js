@@ -2,16 +2,10 @@ import { useState } from "react"
 import {Link, useNavigate } from "react-router-dom"
 import ItemCount from "../ItemCount/ItemCount"
 import {useCartContext} from "../../context/CartContext"
-// import Select from "../ItemCount/Select"
+import './itemdetail.scss'
 
-// const talles = [
-//     {value: 'S', text: 'talle S'},
-//     {value: 'M', text: 'talle M'},
-//     {value: 'L', text: 'talle L'},
-//     {value: 'XL', text: 'talle XL'},
-// ]
 
-const ItemDetail = ( {id, name,  img, type, height, weight, price} ) => {
+const ItemDetail = ( {id, name,  img, type, height, weight, price, stock} ) => {
     const { agregarAlCarrito, isInCart } = useCartContext()
 
     const [cantidad, setCantidad] = useState(1)
@@ -29,7 +23,8 @@ const ItemDetail = ( {id, name,  img, type, height, weight, price} ) => {
         height,
         weight,
         cantidad,
-        price
+        price,
+        stock
     })
     const handleAgregar = () => {
         const item = {
@@ -40,46 +35,39 @@ const ItemDetail = ( {id, name,  img, type, height, weight, price} ) => {
             height,
             weight,
             cantidad,
-            price
+            price,
+            stock
         }
         agregarAlCarrito(item)
     }
 
 
     return (
-        <div className="d-flex flex-column justify-content-between align-items-center">
-            <h2>{name}</h2>
-            <img src={img} alt={name}/>
-            <br/>
-            <small className="small-detail">Tipo(s):{type[1] ? type[0] + " " + type[1] : type[0] }</small>
-            <small className="small-detail">Tamaño:{height} </small>
-            <small className="small-detail">Peso:{weight} </small>
-            <p className="detail-price">Precio: ${price}</p>
+        <div className=" d-flex flex-column container-fluid">
+            <div className="d-flex flex-row align-items-center justify-content-around mt-5 px-5">
+                <div className="ms-5 d-flex flex-column justify-content-between align-items-center">
+                    <h2>{name}</h2>
+                    <img src={img} alt={name}/>
+                </div>
 
-            {/* <ItemCount 
-                    cantidad={cantidad}
-                    setCantidad={setCantidad}
-                    max={10}
-                    onAdd={handleAgregar}
-                /> */}
-
-            {
-            !isInCart(id)
-                ? <ItemCount 
-                    cantidad={cantidad}
-                    setCantidad={setCantidad}
-                    max={10}
-                    onAdd={handleAgregar}
-                />
-                : <Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
-            }
-            <hr/>
-
-            {/* <Select 
-                options={talles}
-                set={setTalle}
-            /> */}
-            
+                <div className="ms-5 d-flex flex-column justify-content-between align-items-center detail-bg">
+                    <small className="small-detail">Tipo(s):{type[1] ? type[0] + " " + type[1] : type[0] }</small>
+                    <small className="small-detail">Tamaño:{height} </small>
+                    <small className="small-detail">Peso:{weight} </small>
+                    <p className="detail-price">Precio: ${price}</p>
+                    {
+                    !isInCart(id)
+                        ? <ItemCount 
+                            cantidad={cantidad}
+                            setCantidad={setCantidad}
+                            max={stock}
+                            onAdd={handleAgregar}
+                        />
+                        : <Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
+                    }
+                </div>
+            </div>
+            <hr className="twhite"/>
             <button className="btn btn-primary" onClick={handleVolver}>Volver</button>
         </div>
     )

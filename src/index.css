@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to top, #16354b, #16354b);
 }
 
 code {
@@ -17,3 +18,5 @@ h1{
   text-align: center;
   font-size: 500px;
 }
+
+

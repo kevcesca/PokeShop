@@ -31,6 +31,7 @@ const MainContainer = () => {
                     return {
                         ...doc.data(),
                         id: doc.id,
+                        stock: 10,
                         price: (doc.id*1.5)+100
                     }
                 }))

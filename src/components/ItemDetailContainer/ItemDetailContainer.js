@@ -16,12 +16,12 @@ const ItemDetailContainer = () => {
         // peticion async
         getDoc(docRef)
             .then(doc => {
-                setItem({ ...doc.data(), id: doc.id, price: (doc.id*1.5)+100 })
+                setItem({ ...doc.data(), id: doc.id, price: (doc.id*1.5)+100, stock:10 })
             })
     }, [itemId])
 
     return (
-        <div className="detail-bg d-flex align-items-center justify-content-between flex-column">
+        <div className="d-flex align-items-center justify-content-between flex-column">
             {
                 item && <ItemDetail {...item}/>
             }

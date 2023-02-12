@@ -5,6 +5,7 @@ import Cart from "../components/Cart/Cart";
 import { Routes, Route, Navigate } from "react-router-dom"
 import MainContainer from "../components/MainContainer/MainContainer";
 import ItemListContainer from '../components/itemListContainer/ItemListContainer';
+import Checkout from "../components/Checkout/Checkout";
 
 const PrivateRoutes = () => {
 
@@ -24,6 +25,7 @@ const PrivateRoutes = () => {
                 <Route path="/contacto" element={ <Contacto />} />
                 <Route path="*" element={ <Navigate to={"/"}/> }/>
                 <Route path="/cart" element={ <Cart /> }/>
+                <Route path="/checkout" element={ <Checkout /> }/>
             </Routes>  
         </>
     )

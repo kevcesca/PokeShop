@@ -8,9 +8,9 @@ const CartWidget = () => {
     const { totalCantidad, cart } = useCartContext()
 
     return (
-        <Link to="/cart" className={`cart-widget ${cart.length > 0 ? 'cart-widget-active' : ''}`}>
+        <Link to="/cart" className={`deco cart-widget ${cart.length > 0 ? 'cart-widget-active' : ''}`}>
             <FaShoppingCart />
-            <span>{totalCantidad()}</span>
+            <span className='ms-2 px-2 cantidad'>{totalCantidad()}</span>
         </Link>
     )
 }
