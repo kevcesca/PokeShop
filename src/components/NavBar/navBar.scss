@@ -1,10 +1,20 @@
 .navBar{
-    background-color: #FF304F;
+    background: linear-gradient(to bottom, #e70c0c, #00000080), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5RxHjOD0fZ2gqOuE_lzLlCII4irZh91VM9w&usqp=CAU");
 }
+
 .links{
-    color: black;
     list-style: none;
     font-size: 20px;
     text-decoration: none;
 
+}
+
+.t-white{
+    color: white;
+    border-radius: 5%;
+
+}
+.desplegable{
+    color: black;
+    border-radius: 5%;
 }

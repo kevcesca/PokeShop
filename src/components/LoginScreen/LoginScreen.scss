@@ -1,17 +1,28 @@
 
 .login-screen {
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(to top, #16354b, #16354b);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // width: 100%;
+    // height: 100vh;
+    // background: linear-gradient(to top, #16354b, #16354b);
 
     .login {
-        width: 600px;
-        padding: 30px;
+        // width: 600px;
+        // padding: 30px;
         border-radius: 10px;
         background-color: #fff;
+    }
+    .pkm-img{
+        background: linear-gradient(to bottom, #000000, #00000080), url("https://www.xtrafondos.com/wallpapers/vertical/pokemon-unite-8254.jpg");
+        min-height: 100vh;
+        background-size: 100vh;
+        background-repeat: no-repeat;
+        margin-left: 5%;
+        border-radius: 10px;
+    }
+    .google-img{
+        width: 30px;
+    }
+    .border:hover{
+        background-color: #72727459;
     }
 
     .error {
