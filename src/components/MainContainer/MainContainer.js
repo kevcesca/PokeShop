@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import './mainContainer.scss'
 import { collection, getDocs,  query, where } from "firebase/firestore"
 import { db } from "../../firebase/config"
+import { motion } from "framer-motion"
 
 const MainContainer = () => {
 
@@ -44,13 +45,14 @@ const MainContainer = () => {
 
 
     return (
-        <div className="container">
-            {
-                loading
-                    ? <h2>Cargando...</h2>
-                    : <ItemList productos={productos}/>
-            }
-        </div>
+            <div className="container">
+                {
+                    loading
+                        ? <h2>Cargando...</h2>
+                        : <ItemList productos={productos}/>
+                }
+            </div>
+        
     )
 }
 

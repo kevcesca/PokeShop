@@ -15,13 +15,13 @@ const ItemCount = ({cantidad, setCantidad, max, onAdd}) => {
             <div>
                 <button 
                     onClick={handleRestar} 
-                    className={`btn btn-outline-${cantidad > 1 ? 'primary' : 'danger'} ${cantidad === 2 ? 'boton-par' : ''}`}
+                    className={` btn btn-outline-${cantidad > 1 ? 'primary' : 'danger'} ${cantidad === 2 ? 'boton-par' : ''}`}
                     disabled={cantidad === 1}
                 >
                         -
                 </button>
 
-                <span className="mx-3">{cantidad}</span>
+                <span className="mx-3 twhite">{cantidad}</span>
 
                 <button 
                     onClick={handleSumar} 

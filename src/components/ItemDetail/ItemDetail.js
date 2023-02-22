@@ -3,6 +3,7 @@ import {Link, useNavigate } from "react-router-dom"
 import ItemCount from "../ItemCount/ItemCount"
 import {useCartContext} from "../../context/CartContext"
 import './itemdetail.scss'
+import { motion } from "framer-motion"
 
 
 const ItemDetail = ( {id, name,  img, type, height, weight, price, stock} ) => {
@@ -47,7 +48,15 @@ const ItemDetail = ( {id, name,  img, type, height, weight, price, stock} ) => {
             <div className="d-flex flex-row align-items-center justify-content-around mt-5 px-5">
                 <div className="ms-5 d-flex flex-column justify-content-between align-items-center">
                     <h2>{name}</h2>
-                    <img src={img} alt={name}/>
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        className="d-flex flex-column justify-content-center align-items-center cards"
+                        onTap={handleAgregar}
+                    >
+                    
+                        <img src={img} alt={name}/>
+                    </motion.button>
                 </div>
 
                 <div className="ms-5 d-flex flex-column justify-content-between align-items-center detail-bg">

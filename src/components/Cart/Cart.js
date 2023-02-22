@@ -14,7 +14,7 @@ const Cart = () => {
             <div className="container my-5">
                 <h2>Tu carrito está vacío</h2>
                 <hr/>
-                <p>Andá a comprar algo</p>
+                <p className="twhite">Aqui verás tus productos en el carrito... cuando agregues alguno</p>
                 <Link to="/" className="btn btn-primary">Volver</Link>
             </div>
         )
