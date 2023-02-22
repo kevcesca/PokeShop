@@ -12,7 +12,9 @@ function NavBar() {
     return (
         <Navbar className='navBar d-flex justify-content-center align-items-center' expand="lg">
             <Container fluid>
-                <Link className="header__link links me-5 t-white" to="/">PokeShop</Link>
+                <Link className="header__link links me-5 t-white" to="/">
+                    <img className='img-fluid logo-shop' src='https://www.narita-airport.jp/img/original/3786' alt='PokeShop'></img>
+                </Link>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <div className="d-flex justify-content-end align-items-center">
