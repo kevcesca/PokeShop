@@ -26,7 +26,7 @@ function NavBar() {
                             <Link className="header__link links me-5 mt-2 t-white" to="/productos/Water">Agua</Link>
                             <Link className="header__link links me-5 mt-2 t-white" to="/productos/Fire">Fuego</Link>
                             <Link className="header__link links me-5 mt-2 t-white" to="/productos/Grass">Planta</Link>
-                            <NavDropdown className='links me-5 t-white' title="Más tipos" id="navbarScrollingDropdown">
+                            <NavDropdown className='links me-5 twhite' title="Más tipos" id="navbarScrollingDropdown">
                                 <Link className="header__link links desplegable" to="/productos/Bug">Bicho</Link>
                                 <NavDropdown.Divider />
                                 <Link className="header__link links desplegable" to="/productos/Dragon">Dragón</Link>
@@ -56,11 +56,12 @@ function NavBar() {
                             </NavDropdown>
                         </Nav>
                         <div className='ms-5 col-1'>
-                            <CartWidget className='ms-5'/>
+                            <CartWidget className='ms-5 '/>
                         </div>
-                        <div className='header__container mx-5 col-1 t-white'>
-                            <p>Bienvenido: {user.email}</p>
-                            <button className='btn btn-danger' onClick={logout}>Logout</button>
+                        <div className='header__container mx-5 col-1 t-white d-flex justify-content-center align-items-center flex-column'>
+                            <p>Bienvenido:</p>
+                            <p>{user.email}</p>
+                            <button className='btn btn-danger text-reset' onClick={logout}>Logout</button>
                         </div>
                     </div>
                     

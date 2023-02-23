@@ -5,7 +5,7 @@ const ItemList = ( {productos} ) => {
 
     return (
         <div className="">
-            <h2 className="">Nuestros productos</h2>
+            <h2 className="my-5">Nuestros productos</h2>
             <hr/>
 
             <section className="row my-4 container d-flex justify-content-center align-items-center">

@@ -9,7 +9,7 @@ const CartWidget = () => {
 
     return (
         <Link to="/cart" className={`deco cart-widget ${cart.length > 0 ? 'cart-widget-active' : ''}`}>
-            <FaShoppingCart />
+            <FaShoppingCart className='logo-cart' />
             <span className='ms-2 px-2 cantidad'>{totalCantidad()}</span>
         </Link>
     )

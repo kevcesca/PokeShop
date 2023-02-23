@@ -57,7 +57,7 @@ const Checkout = () => {
         const outOfStock = []
         
         const itemsRef = query( productosRef, where( documentId(), 'in', cart.map(prod => prod.id) ) )
-  
+
         const productos = await getDocs(itemsRef)
         
         productos.docs.forEach(doc => {
@@ -85,12 +85,12 @@ const Checkout = () => {
 
     if (orderId) {
         return (
-            <div className="container my-5">
-                <h2>Tu compra ha sido exitosa</h2>
-                <hr/>
-                <p>Tu código de orden es: {orderId}</p>
+            <div className="container my-5 d-flex justify-content-center align-items-center flex-column">
+                <h2 className="twhite">La compra ha sido exitosa</h2>
+                <hr className="twhite"/>
+                <p className="twhite">Tu orden de compra es: {orderId}</p>
 
-                <Link to="/">Volver</Link>
+                <Link className="btn btn-primary text-reset" to="/">Volver</Link>
             </div>
         )
     }
@@ -100,18 +100,18 @@ const Checkout = () => {
     }
 
     return (
-        <div className="container my-5">
-            <h2>Completa tu compra</h2>
-            <hr/>
+        <div className="container my-5 d-flex justify-content-center align-items-stretch flex-column checkout-form">
+            <h2 className="mt-2">Completa tu compra</h2>
+            <hr className="twhite"/>
 
-            <form onSubmit={handleSubmit}>
+            <form className="d-flex justify-content-center align-items-stretch flex-column" onSubmit={handleSubmit}>
                 <input
                     className="form-control my-2"
                     onChange={handleInputChange}
                     type="text"
                     name="nombre"
                     value={values.nombre}
-                    placeholder="Cómo te llamas?"
+                    placeholder="Ingresa el nombre de quien recibe"
                 />
 
                 <input
@@ -120,7 +120,7 @@ const Checkout = () => {
                     type="text"
                     name="direccion"
                     value={values.direccion}
-                    placeholder="Cual es tu dirección?"
+                    placeholder="Ingresa tu dirección de envio"
                 />
 
                 <input
@@ -129,10 +129,10 @@ const Checkout = () => {
                     type="email"
                     name="email"
                     value={values.email}
-                    placeholder="Cual es tu email?"
+                    placeholder="Ingresa tu e-mail"
                 />
 
-                <button className="btn btn-primary">Enviar</button>
+                <button className="btn btn-primary text-reset twhite">Enviar</button>
             </form>
             
         </div>

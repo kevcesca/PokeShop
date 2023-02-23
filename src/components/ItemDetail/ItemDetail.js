@@ -72,12 +72,12 @@ const ItemDetail = ( {id, name,  img, type, height, weight, price, stock} ) => {
                             max={stock}
                             onAdd={handleAgregar}
                         />
-                        : <Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
+                        : <Link to="/cart" className="btn btn-success text-reset">Terminar mi compra</Link>
                     }
                 </div>
             </div>
             <hr className="twhite"/>
-            <button className="btn btn-primary" onClick={handleVolver}>Volver</button>
+            <button className="btn btn-primary text-reset btn-volver mb-3" onClick={handleVolver}>Volver</button>
         </div>
     )
 }
